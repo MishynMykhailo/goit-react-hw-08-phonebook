@@ -8,7 +8,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { ContactsApi } from './contacts/contacts-operations';
+import authSlice from './auth/auth-slice';
+// import {authReducer} from './'
 // import storage from 'redux-persist/lib/storage';
 
 // const persistConfig = {
@@ -26,13 +27,11 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  ContactsApi.middleware,
 ];
 
 export const store = configureStore({
   reducer: {
     contacts: contactReducers,
-    [ContactsApi.reducerPath]: ContactsApi.reducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

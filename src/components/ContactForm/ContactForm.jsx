@@ -29,7 +29,6 @@ export const ContactForm = () => {
     if (contacts.find(({ name }) => name.toLowerCase() === normalizedName)) {
       alert(`${name} is already in contacts`);
     } else {
-      console.log(name, phone);
       return dispatch(operations.addContact({ name, phone }));
     }
   };
