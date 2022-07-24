@@ -4,8 +4,8 @@ import authOperations from 'redux/auth/auth-operations';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('kotik114@gmail.com');
-  const [password, setPassword] = useState('kotik114');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -24,30 +24,36 @@ export default function LoginPage() {
     setEmail('');
     setPassword('');
   };
+
   return (
-    <>
-      <h1>Login Page</h1>
+    <div>
+      <h1>Login page</h1>
+
       <form onSubmit={handleSubmit} autoComplete="off">
         <label>
-          Почта
+          Email
           <input
             type="email"
             name="email"
-            onChange={handleChange}
             value={email}
+            placeholder="Email"
+            onChange={handleChange}
           />
         </label>
+
         <label>
-          Пароль
+          Password
           <input
             type="password"
             name="password"
-            onChange={handleChange}
             value={password}
+            placeholder="Password"
+            onChange={handleChange}
           />
         </label>
-        <button type="submit">Войти</button>
+
+        <button type="submit">Enter</button>
       </form>
-    </>
+    </div>
   );
 }
