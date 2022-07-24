@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/auth-operations';
+import authOperations from 'redux/auth/auth-operations';
 
-const LoginPage = () => {
+export default function LoginPage() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('kotik114@gmail.com');
+  const [password, setPassword] = useState('kotik114');
 
-  const handleChange = ({ currentTarget: { name, value } }) => {
+  const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'email':
         return setEmail(value);
@@ -20,8 +20,7 @@ const LoginPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(email, password);
-    dispatch(logIn({ email, password }));
+    dispatch(authOperations.logIn({ email, password }));
     setEmail('');
     setPassword('');
   };
@@ -51,5 +50,4 @@ const LoginPage = () => {
       </form>
     </>
   );
-};
-export default LoginPage;
+}

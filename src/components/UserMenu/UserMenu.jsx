@@ -1,22 +1,19 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { logOut } from 'redux/auth/auth-operations';
-// import authSelectors from 'redux/auth/auth-selectors';
-// import defaultAvatar from '../../images/defaultAvatar.png';
-const UserMenu = () => {
-  //   const dispatch = useDispatch();
-  //   //   const name = useSelector(authSelectors.getUsername);
-  //   //   console.log(name);
-  //   const avatar = defaultAvatar;
-
+import { useSelector, useDispatch } from 'react-redux';
+// import authOperations from '../../redux/auth/auth-operations';
+import authSelectors from 'redux/auth/auth-selectors';
+export default function UserMenu() {
+  const dispatch = useDispatch();
+  const name = useSelector(authSelectors.getUsername);
+  console.log(name);
   return (
     <div>
-      <h4>yes</h4>
-      {/* <img src={avatar} alt="" width="32" style={{ marginRight: 4 }} /> */}
-      {/* <span>Добро пожаловать,{name}</span> */}
-      {/* <button type="button" onClick={() => dispatch(logOut())}>
-        Выйти
-      </button> */}
+      <h2>yes</h2>
+      {/* <img src={avatar} alt="" width="32" style={styles.avatar} /> */}
+      {/* <span>Welcome, {name}</span> */}
+      {/* <button
+        type="button"
+        onClick={() => dispatch(authOperations.logOut())}
+      ></button> */}
     </div>
   );
-};
-export default UserMenu;
+}
