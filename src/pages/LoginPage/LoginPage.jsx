@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import authOperations from 'redux/auth/auth-operations';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('kotik114@gmail.com');
+  const [password, setPassword] = useState('kotik114');
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -54,6 +55,7 @@ export default function LoginPage() {
 
         <button type="submit">Enter</button>
       </form>
+      <Link to="/register">Don't have an account? Sign Up</Link>
     </div>
   );
 }

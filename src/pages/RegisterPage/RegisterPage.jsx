@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
 
-const RegisterPage = () => {
+export default function RegisterPage() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -59,5 +59,4 @@ const RegisterPage = () => {
       </form>
     </>
   );
-};
-export default RegisterPage;
+}

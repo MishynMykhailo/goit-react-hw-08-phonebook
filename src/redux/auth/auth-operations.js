@@ -17,7 +17,9 @@ const register = createAsyncThunk('auth/register', async credentials => {
     const { data } = await axios.post('/users/signup', credentials);
     token.set(data.token);
     return data;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 const logIn = createAsyncThunk('auth/login', async credentials => {
@@ -34,13 +36,34 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.post('/users/logout');
     token.unset();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error.message);
+  }
 });
-
+const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken === null) {
+      return thunkAPI.rejectedWithValue();
+    }
+    token.set(persistedToken);
+    try {
+      const { data } = await axios.get('/users/current');
+      return data;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+);
 const authOperations = {
   register,
   logOut,
   logIn,
+  fetchCurrentUser,
 };
 
 export default authOperations;
+// eslint-disable-next-line import/no-anonymous-default-export
+// export default { register, logIn, logOut };

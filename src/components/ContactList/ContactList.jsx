@@ -26,11 +26,11 @@ const ContactList = () => {
 
   return (
     <ul>
-      {getVisibleContacts().map(({ name, phone, id }) => {
+      {getVisibleContacts().map(({ name, number, id }) => {
         return (
           <ContactItem
             name={name}
-            phone={phone}
+            number={number}
             key={id}
             id={id}
             onDeleteContacts={deleteContacts}

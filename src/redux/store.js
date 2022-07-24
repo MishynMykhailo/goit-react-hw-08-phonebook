@@ -1,6 +1,8 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { contactReducers } from './contacts/contacts-reducers';
 import {
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,7 +11,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import authSlice from './auth/auth-slice';
-import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 
 // const persistConfig = {
@@ -41,4 +42,4 @@ export const store = configureStore({
   middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
-// export let persistor = persistStore(store);
+export const persistor = persistStore(store);

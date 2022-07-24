@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as operations from '../../redux/contacts/contacts-operations';
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(getItemsValueState);
   const dispatch = useDispatch();
 
@@ -16,32 +16,32 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         return;
     }
   };
 
-  const addContacts = ({ name, phone }) => {
+  const addContacts = ({ name, number }) => {
     const normalizedName = name.toLowerCase();
     if (contacts.find(({ name }) => name.toLowerCase() === normalizedName)) {
       alert(`${name} is already in contacts`);
     } else {
-      return dispatch(operations.addContact({ name, phone }));
+      return dispatch(operations.addContact({ name, number }));
     }
   };
 
   const handlerSumbit = e => {
     e.preventDefault();
     reset();
-    return addContacts({ name, phone });
+    return addContacts({ name, number });
   };
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -60,13 +60,15 @@ export const ContactForm = () => {
         />
       </label>
       <label className={s.label}>
-        Phone
+        number
         <input
           className={s.input}
           type="tel"
-          name="phone"
+          name="number"
           onChange={handlerChange}
-          value={phone}
+          // pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
+          title="The phone number must be 13 digits long and may contain numbers, spaces, dashes, paunches, and may begin with +"
+          value={number}
         />
       </label>
       <button className={s.button} type="submit">
