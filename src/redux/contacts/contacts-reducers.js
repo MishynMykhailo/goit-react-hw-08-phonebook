@@ -8,11 +8,10 @@ const items = createReducer([], {
     return payload;
   },
   [addContact.fulfilled]: (state, { payload }) => {
-    console.log(payload);
     return [...state, payload];
   },
   [deleteContact.fulfilled]: (state, { payload }) => {
-    return state.filter(({ id }) => id !== payload.id);
+    return state.filter(({ id }) => id !== payload);
   },
 });
 const filter = createReducer('', {

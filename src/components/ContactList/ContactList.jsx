@@ -14,6 +14,7 @@ const ContactList = () => {
   }, [dispatch]);
   const contacts = useSelector(getItemsValueState);
   const filter = useSelector(getFilterValueState);
+
   const deleteContacts = contactsId => {
     dispatch(operations.deleteContact(contactsId));
   };

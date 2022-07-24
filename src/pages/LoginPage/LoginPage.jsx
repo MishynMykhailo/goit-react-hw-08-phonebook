@@ -5,8 +5,8 @@ import authOperations from 'redux/auth/auth-operations';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('kotik114@gmail.com');
-  const [password, setPassword] = useState('kotik114');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
