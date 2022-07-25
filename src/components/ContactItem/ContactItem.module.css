@@ -8,6 +8,7 @@
   margin-bottom: 5px;
   padding: 5px;
   border-bottom: 1px solid black;
+  align-items: center;
 }
 .button {
   width: 80px;

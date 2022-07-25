@@ -1,3 +1,5 @@
+import { Box, Typography } from '@mui/material';
+
 const { ContactForm } = require('components/ContactForm');
 const { default: ContactList } = require('components/ContactList');
 const { default: Filter } = require('components/Filter');
@@ -5,9 +7,15 @@ const { default: Filter } = require('components/Filter');
 const ContactsPage = () => {
   return (
     <>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
+      <Box sx={{ mb: 4 }}>
+        <Typography variant="h6" component="h2">
+          Phonebook
+        </Typography>
+        <ContactForm />
+      </Box>
+      <Typography variant="h6" component="h2">
+        Contacts
+      </Typography>
       <Filter />
       <ContactList />
     </>
