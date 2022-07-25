@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import authOperations from 'redux/auth/auth-operations';
 import authSelectors from 'redux/auth/auth-selectors';
 
-export default function AppBars() {
+export default function PhonebookAppBar() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const [anchorEl, setAnchorEl] = useState(null);

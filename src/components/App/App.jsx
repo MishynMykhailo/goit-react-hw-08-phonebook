@@ -1,10 +1,10 @@
 import s from '../App/App.module.css';
-import AppBars from '../AppBar/AppBar';
+import PhonebookAppBar from '../PhonebookAppBar';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy, Suspense, useEffect } from 'react';
 import authOperations from 'redux/auth/auth-operations';
-import Loader from 'components/Loader/Loader';
+import Loader from '../Loader';
 import PrivateRoute from 'components/PrivateRoute';
 import PublicRoute from 'components/PublicRoute';
 import authSelectors from 'redux/auth/auth-selectors';
@@ -35,7 +35,7 @@ export const App = () => {
   return !isFetchingCurrentUser ? (
     <Suspense fallback={<Loader />}>
       <div className={s.div}>
-        <AppBars />
+        <PhonebookAppBar />
         <Paper elevation={3}>
           <div className={s.content}>
             <Routes>
