@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import authOperations from 'redux/auth/auth-operations';
 import authSelectors from 'redux/auth/auth-selectors';
+import { Box } from '@mui/material';
 
 export default function PhonebookAppBar() {
   const dispatch = useDispatch();
@@ -36,23 +37,22 @@ export default function PhonebookAppBar() {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Typography
-              variant="h6"
-              noWrap
+            <Box
               component="a"
-              href="goit-react-hw-08-phonebook/contacts"
+              onClick={() => navigate('/')}
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
                 fontWeight: 700,
+                fontSize: '20px',
                 color: 'inherit',
                 textDecoration: 'none',
                 flexGrow: 1,
+                cursor: 'pointer',
               }}
             >
               ContactBook
-            </Typography>
+            </Box>
 
             {isLoggedIn ? (
               <>

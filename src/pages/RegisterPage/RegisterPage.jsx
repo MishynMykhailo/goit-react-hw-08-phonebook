@@ -32,6 +32,10 @@ export default function RegisterPage() {
       Notify.failure('Fill in all the fields');
       return;
     }
+    if (password.length < 7) {
+      Notify.failure('minimum password length - 7 characters');
+      return;
+    }
     dispatch(authOperations.register({ name, email, password }));
     setName('');
     setEmail('');
@@ -87,6 +91,7 @@ export default function RegisterPage() {
             placeholder="Password"
             variant="outlined"
             onChange={handleChange}
+            minLength="7"
           />
 
           <Button

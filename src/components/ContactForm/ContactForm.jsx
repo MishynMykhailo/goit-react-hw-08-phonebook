@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import s from '../ContactForm/ContactForm.module.css';
+
 import { getItemsValueState } from 'redux/contacts/contacts-selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
@@ -51,7 +51,15 @@ export const ContactForm = () => {
 
   return (
     <>
-      <Box component="form" onSubmit={handlerSumbit} className={s.form}>
+      <Box
+        component="form"
+        onSubmit={handlerSumbit}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '15px',
+        }}
+      >
         <TextField
           type="text"
           name="name"
@@ -60,7 +68,7 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           onChange={handlerChange}
           value={name}
-          variant="standard"
+          variant="outlined"
           autoComplete="off"
         />
         <TextField
@@ -71,7 +79,7 @@ export const ContactForm = () => {
           // pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
           title="The phone number must be 13 digits long and may contain numbers, spaces, dashes, paunches, and may begin with +"
           value={number}
-          variant="standard"
+          variant="outlined"
           sx={{ mb: 2, mt: 2 }}
           autoComplete="off"
         />

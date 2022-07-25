@@ -7,6 +7,7 @@ import {
 } from 'redux/contacts/contacts-selectors';
 import * as operations from '../../redux/contacts/contacts-operations';
 import { useEffect } from 'react';
+import Stack from '@mui/material/Stack';
 const ContactList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,7 +27,7 @@ const ContactList = () => {
   };
 
   return (
-    <ul>
+    <Stack component="ul" sx={{ padding: 0 }} spacing={1}>
       {getVisibleContacts().map(({ name, number, id }) => {
         return (
           <ContactItem
@@ -38,7 +39,7 @@ const ContactList = () => {
           />
         );
       })}
-    </ul>
+    </Stack>
   );
 };
 
