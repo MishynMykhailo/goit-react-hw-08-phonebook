@@ -40,6 +40,10 @@ export const ContactForm = () => {
 
   const handlerSumbit = e => {
     e.preventDefault();
+    if (name.trim() === '' || number.trim() === '') {
+      Notify.failure(`Fill in the fields before adding`);
+      return;
+    }
     reset();
     return addContacts({ name, number });
   };

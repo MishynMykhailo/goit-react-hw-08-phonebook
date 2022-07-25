@@ -39,3 +39,15 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+export const updateContact = createAsyncThunk(
+  'contact/updateContact',
+  async ({ id, number, name }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch(`/contacts/${id}`, { number, name });
+      return data;
+    } catch (error) {
+      console.log(rejectWithValue(error));
+      return rejectWithValue(error);
+    }
+  }
+);

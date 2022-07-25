@@ -1,7 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import * as actions from './contacts-actions';
-import { fetchContact, addContact, deleteContact } from './contacts-operations';
+import {
+  fetchContact,
+  addContact,
+  deleteContact,
+  updateContact,
+} from './contacts-operations';
 
 const items = createReducer([], {
   [fetchContact.fulfilled]: (_, { payload }) => {
@@ -12,6 +17,11 @@ const items = createReducer([], {
   },
   [deleteContact.fulfilled]: (state, { payload }) => {
     return state.filter(({ id }) => id !== payload);
+  },
+  [updateContact.fulfilled]: (state, { payload }) => {
+    return state.map(contact =>
+      contact.id === payload.id ? payload : contact
+    );
   },
 });
 const filter = createReducer('', {

@@ -42,6 +42,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
     Notify.failure(error.message);
   }
 });
+
 const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
@@ -59,6 +60,7 @@ const fetchCurrentUser = createAsyncThunk(
     }
   }
 );
+
 const authOperations = {
   register,
   logOut,
