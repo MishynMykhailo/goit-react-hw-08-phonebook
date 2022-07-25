@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import s from '../ContactItem/ContactItem.module.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
