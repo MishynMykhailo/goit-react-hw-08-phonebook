@@ -1,18 +1,28 @@
-import logoReact from '../HomePage/logoReact.png';
+import { ReactComponent as LogoReact } from '../HomePage/logoReact.svg';
 import s from '../HomePage/HomePage.module.css';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, SvgIcon, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 const HomePage = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <Box
-        component="img"
-        src={logoReact}
-        className={s.rotate}
-        alt="React logo"
-        sx={{ mb: 2 }}
-      />
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <LogoReact
+          className={s.rotate}
+          height="100"
+          title="LogoReact"
+          alt="LogoReact"
+          fill="#836bf2"
+          // fill="#61dafb" standart color - react logo
+        />
+      </Box>
       <Typography
         variant="h6"
         component="h2"

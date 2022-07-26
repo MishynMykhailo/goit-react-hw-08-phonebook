@@ -45,7 +45,6 @@ const ContactItem = ({ name, number, id, onDeleteContacts }) => {
           padding: 2,
           alignItems: 'center',
           color: 'black',
-          border: '1px solid #1976d278',
         }}
       >
         <Box
