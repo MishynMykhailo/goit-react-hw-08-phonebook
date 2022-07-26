@@ -1,6 +1,6 @@
 import { ReactComponent as LogoReact } from '../HomePage/logoReact.svg';
 import s from '../HomePage/HomePage.module.css';
-import { Box, Button, SvgIcon, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
