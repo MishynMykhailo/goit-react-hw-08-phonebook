@@ -1,11 +1,11 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateContact } from 'redux/contacts/contacts-operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-const UpdateContact = ({ id, changeModal }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+const UpdateContact = ({ id, changeModal, UserName, UserNumber }) => {
+  const [name, setName] = useState(UserName);
+  const [number, setNumber] = useState(UserNumber);
   const dispatch = useDispatch();
   const handlerChange = e => {
     const { name, value } = e.currentTarget;
@@ -39,6 +39,9 @@ const UpdateContact = ({ id, changeModal }) => {
         padding: '15px',
       }}
     >
+      <Typography variant="h6" component="h2" sx={{ mb: 2 }}>
+        Edit Contact
+      </Typography>
       <TextField
         type="text"
         name="name"

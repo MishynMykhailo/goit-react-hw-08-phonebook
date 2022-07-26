@@ -78,7 +78,12 @@ const ContactItem = ({ name, number, id, onDeleteContacts }) => {
             </Button>
             <Modal open={open} onClose={handleClose}>
               <Box sx={style}>
-                <UpdateContact id={id} changeModal={setOpen} />
+                <UpdateContact
+                  id={id}
+                  changeModal={setOpen}
+                  UserName={name}
+                  UserNumber={number}
+                />
               </Box>
             </Modal>
           </Box>
